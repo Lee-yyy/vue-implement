@@ -8,11 +8,24 @@
 </head>
 
 <body>
-  <script src="/src/index.js"></script>
+  <script src="/dist/vue.js"></script>
+
+  <div id="app" a=1 b=2 style="color:green">
+    <ul>
+      <li>{{name}}</li>
+      <li>{{age}}</li>
+    </ul>
+  </div>
+
   <script>
-    console.log(a);
+    const vm = new Vue({ // vue2 options Api  tree-shaking 
+      el: '#app',
+      data() {
+        return { name: 'zf', age: 10 }   // vue中数组中的对象 如果变化了 也需要更新视图
+      }
+    });
+    console.log(vm);
   </script>
-  <div>hello</div>
 </body>
 
 </html>

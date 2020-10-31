@@ -1,3 +1,4 @@
+import { queueWatcher } from './schedular'
 let id = 0;
 class Watcher {
   constructor(vm, exprOrFn, cb, options) {

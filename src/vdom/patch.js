@@ -6,6 +6,7 @@ export function patch(oldVnode, vnode) {
     const oldElm = oldVnode; // id="app"
     const parentElm = oldElm.parentNode; // body
     let el = createElm(vnode);
+    debugger
     parentElm.insertBefore(el, oldElm.nextSibling); // 将创建的节点查到原有的节点的下一个
     parentElm.removeChild(oldElm);
     return el; // vm.$el
@@ -19,7 +20,7 @@ function createElm(vnode) { // 根据虚拟节点创建真实的节点
   if (typeof tag === 'string') {
     // 可能是组件
     vnode.el = document.createElement(tag); // 用vue的指令时 可以通过vnode拿到真实dom
-    updateProperties(vnode);// 把vnode上的属性对应的设置到真实dom上
+    updateProperties(vnode);
     children.forEach(child => { // 如果有儿子节点，就进行递归操作
       vnode.el.appendChild(createElm(child))
     })

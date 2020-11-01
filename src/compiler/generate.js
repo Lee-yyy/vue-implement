@@ -18,7 +18,7 @@ function genProps(attrs) {
 
 function genChildren(el) {
   const children = el.children;
-  if (el.children) {
+  if (children) {
     return children.map(child => gen(child)).join(',')
   }
 }

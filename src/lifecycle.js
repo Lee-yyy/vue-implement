@@ -4,8 +4,12 @@ export function lifecycleMixin(Vue) {
   Vue.prototype._update = function (vnode) {
     // 将虚拟节点转换成真实的dom
     const vm = this;
+    // debugger
+    console.log(vm.$options.el, vnode)
     // 首次渲染 需要用虚拟节点 来更新真实的dom元素
-    vm.$el = patch(vm.$options.el, vnode);
+
+    // 1.第一次渲染完毕后 拿到新的节点，下次再次渲染时替换上次渲染的结果
+    vm.$options.el = patch(vm.$options.el, vnode);
 
 
   }
